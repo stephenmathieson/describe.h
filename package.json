@@ -1,0 +1,12 @@
+{
+  "name": "describe.h",
+  "version": "0.0.0",
+  "repo": "stephenmathieson/describe.h",
+  "description": "Simple BDD describe test thingy",
+  "keywords": [ "testing", "bdd", "assert", "describe" ],
+  "license": "MIT",
+  "src": [
+    "describe.h",
+    "assertion-macros.h"
+  ]
+}
