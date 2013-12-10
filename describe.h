@@ -20,11 +20,12 @@
  * Describe `fn` with `title`
  */
 
-#define describe(title, fn) ({ \
+#define describe(title, fn) int main(void) { \
   printf("\n  %s\n", title); \
   fn; \
   printf("\n"); \
-});
+  return assert_failures(); \
+}
 
 /*
  * Describe `fn` with `specification`
