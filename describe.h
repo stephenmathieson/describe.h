@@ -7,15 +7,14 @@
 //
 
 
-#ifndef __DESCRIBE_H__
-#define __DESCRIBE_H__ 1
+#ifndef DESCRIBE_H
+#define DESCRIBE_H 1
 
 #include "assertion-macros.h"
 
-#define DESCRIBE_VERSION "0.0.0"
-
-#define DESCRIBE_OK "✓"
-#define DESCRIBE_FAIL "✖"
+#define DESCRIBE_VERSION "0.0.1"
+#define DESCRIBE_OK      "✓"
+#define DESCRIBE_FAIL    "✖"
 
 /*
  * Describe `fn` with `title`
@@ -24,6 +23,7 @@
 #define describe(title, fn) ({ \
   printf("\n  %s\n", title); \
   fn; \
+  printf("\n"); \
 });
 
 /*
