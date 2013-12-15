@@ -1,5 +1,5 @@
 {
-  "name": "describe.h",
+  "name": "describe",
   "version": "0.0.1",
   "repo": "stephenmathieson/describe.h",
   "description": "Simple BDD describe test thingy",
