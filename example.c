@@ -19,5 +19,7 @@ describe("my program", {
     assert_not_equal(1, 2);
     assert_str_equal("hello", "hello");
     assert_str_not_equal("hello", "world");
+    assert_null(NULL);
+    assert_not_null("not null");
   });
 });

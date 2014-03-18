@@ -59,6 +59,34 @@ int __assert_failures = 0;
 })
 
 /*
+ * Assert that `expr` is NULL
+ */
+
+#define assert_null(expr) ({ \
+  if ((expr) != NULL) {\
+    __assert_failures++; \
+    fprintf(stderr, \
+      "Assertion error: %s is NULL (%s:%d)\n", \
+      #expr, __FILE__, __LINE__); \
+    if (__assert_bail) abort(); \
+  } \
+})
+
+/*
+ * Assert that `expr` is not NULL
+ */
+
+#define assert_not_null(expr) ({ \
+  if ((expr) == NULL) {\
+    __assert_failures++; \
+    fprintf(stderr, \
+      "Assertion error: %s is not NULL (%s:%d)\n", \
+      #expr, __FILE__, __LINE__); \
+    if (__assert_bail) abort(); \
+  } \
+})
+
+/*
  * Assert that `a` is equal to `b`
  */
 
