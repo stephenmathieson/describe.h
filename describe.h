@@ -11,6 +11,7 @@
 #define DESCRIBE_H 1
 
 #include "assertion-macros/assertion-macros.h"
+#include "color/color.c"
 
 #define DESCRIBE_VERSION "1.0.0"
 #define DESCRIBE_OK      "✓"
@@ -34,11 +35,16 @@
 #define it(specification, fn) ({ \
   int before = assert_failures(); \
   fn; \
+  char *status; \
   if (assert_failures() == before) { \
-    printf("    \e[92m%s \e[90m%s\e[0m\n", DESCRIBE_OK, specification); \
+    status = color((ansi_color_opts){.color=ANSI_COLOR_GREEN}, DESCRIBE_OK); \
   } else { \
-    printf("    \e[90m%s \e[90m%s\e[0m\n", DESCRIBE_FAIL, specification); \
+    status = color((ansi_color_opts){.color=ANSI_COLOR_RED}, DESCRIBE_FAIL); \
   } \
+  char *spec = color((ansi_color_opts){.color=ANSI_COLOR_GRAY}, specification); \
+  printf("    %s %s\n", status, spec); \
+  free(status); \
+  free(spec); \
 });
 
 #endif
