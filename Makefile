@@ -1,6 +1,9 @@
 
+CC ?= gcc
+CFLAGS = -std=c99 -Wall -Wextra -Ideps
+
 example: example.c
-	$(CC) -std=c99 $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@
 	./example
 
 .PHONY: example

@@ -10,9 +10,9 @@
 #ifndef DESCRIBE_H
 #define DESCRIBE_H 1
 
-#include "assertion-macros.h"
+#include "assertion-macros/assertion-macros.h"
 
-#define DESCRIBE_VERSION "0.0.1"
+#define DESCRIBE_VERSION "1.0.0"
 #define DESCRIBE_OK      "✓"
 #define DESCRIBE_FAIL    "✖"
 
