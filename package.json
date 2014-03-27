@@ -1,6 +1,6 @@
 {
   "name": "describe",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "repo": "stephenmathieson/describe.h",
   "description": "Simple BDD describe test thingy",
   "keywords": [ "testing", "bdd", "assert", "describe" ],
