@@ -10,6 +10,7 @@
 #ifndef DESCRIBE_H
 #define DESCRIBE_H 1
 
+#include "console-colors/console-colors.h"
 #include "assertion-macros/assertion-macros.h"
 
 #define DESCRIBE_VERSION "1.0.0"
@@ -17,12 +18,12 @@
 #define DESCRIBE_FAIL    "✖"
 
 /*
- * Describe `fn` with `title`
+ * Describe `suite` with `title`
  */
 
-#define describe(title, fn) int main(void) { \
+#define describe(title, suite) int main(void) { \
   printf("\n  %s\n", title); \
-  fn; \
+  suite; \
   printf("\n"); \
   return assert_failures(); \
 }
@@ -31,14 +32,30 @@
  * Describe `fn` with `specification`
  */
 
-#define it(specification, fn) ({ \
-  int before = assert_failures(); \
-  fn; \
+#define it(specification, fn) ({     \
+  int before = assert_failures();    \
+  fn;                                \
   if (assert_failures() == before) { \
-    printf("    \e[92m%s \e[90m%s\e[0m\n", DESCRIBE_OK, specification); \
-  } else { \
-    printf("    \e[90m%s \e[90m%s\e[0m\n", DESCRIBE_FAIL, specification); \
-  } \
+    cc_fprintf(                      \
+        CC_FG_DARK_GREEN             \
+      , stdout                       \
+      , "    %s"                     \
+      , DESCRIBE_OK                  \
+    );                               \
+  } else {                           \
+    cc_fprintf(                      \
+        CC_FG_DARK_RED               \
+      , stdout                       \
+      , "    %s"                     \
+      , DESCRIBE_FAIL                \
+    );                               \
+  }                                  \
+  cc_fprintf(                        \
+      CC_FG_GRAY                     \
+    , stdout                         \
+    , " %s\n"                        \
+    , specification                  \
+  );                                 \
 });
 
 #endif
