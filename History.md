@@ -1,3 +1,8 @@
+2.0.0 / 2015-08-13
+==================
+
+ * Change API to support multiple `describe` statements.
+ * Fix XCode not accepting breakpoints when using `describe.h`.
 
 1.1.0 / 2014-03-27
 ==================
