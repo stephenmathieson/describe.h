@@ -1,10 +1,15 @@
 
 CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Ideps
-DEPS = $(wildcard deps/*/*.c)
+DEPS := $(wildcard deps/*/*.c)
+OBJS := $(DEPS:.c=.o)
 
-example: example.c $(DEPS)
-	$(CC) $(CFLAGS) $^ -o $@
-	./example
+default: example
+	./$<
 
-.PHONY: example
+example: example.o $(OBJS)
+
+clean:
+	rm -rf $(OBJS) example.o example
+
+.PHONY: default clean
