@@ -14,26 +14,31 @@
 ```c
 #include "describe.h"
 
-describe("my program", {
-  it("should do stuff", {
-    assert(12 == 12);
-  });
+int main(void) {
+  describe("my program") {
+    it("should do stuff") {
+      assert(12 == 12);
+    }
 
-  it("should fail sometimes", {
-    assert(0 == 12);
-  });
+    it("should fail sometimes") {
+      assert(0 == 12);
+    }
 
-  it("should be ok after failures", {
-    assert(1 == 1);
-  });
+    it("should be ok after failures") {
+      assert(1 == 1);
+    }
 
-  it("should bundle assertion macros", {
-    assert_equal(1, 1);
-    assert_not_equal(1, 2);
-    assert_str_equal("hello", "hello");
-    assert_str_not_equal("hello", "world");
-  });
-});
+    it("should bundle assertion macros") {
+      assert_equal(1, 1);
+      assert_not_equal(1, 2);
+      assert_str_equal("hello", "hello");
+      assert_str_not_equal("hello", "world");
+      assert_null(NULL);
+      assert_not_null("not null");
+    }
+  }
+  return assert_failures();
+}
 ```
 
 ## License
@@ -41,6 +46,7 @@ describe("my program", {
 (The MIT License)
 
 Copyright (c) 2013 Stephen Mathieson &lt;me@stephenmathieson.com&gt;
+Copyright (c) 2015 Michael Phan-Ba &lt;michael@mikepb.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
