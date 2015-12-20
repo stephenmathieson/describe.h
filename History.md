@@ -1,4 +1,11 @@
 
+2.0.1 / 2015-12-20
+==================
+
+  * package: update assertion-macros
+  * Makefile: build objects
+  * Readme: fix layout on @mikepb's copyright notice
+
 2.0.0 / 2015-09-11
 ==================
 
