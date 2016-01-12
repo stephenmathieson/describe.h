@@ -14,7 +14,6 @@
 #include "console-colors/console-colors.h"
 #include "assertion-macros/assertion-macros.h"
 
-#define DESCRIBE_VERSION "1.1.0"
 #define DESCRIBE_OK      "✓"
 #define DESCRIBE_FAIL    "✖"
 
