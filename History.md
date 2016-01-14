@@ -1,4 +1,10 @@
 
+2.0.2 / 2016-01-13
+==================
+
+  * package: update `assertion-macros.h`
+  * describe: remove `DESCRIBE_VERSION`
+
 2.0.1 / 2015-12-20
 ==================
 
