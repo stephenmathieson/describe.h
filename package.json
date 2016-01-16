@@ -5,7 +5,7 @@
   "description": "Simple BDD describe test thingy",
   "keywords": [ "testing", "bdd", "assert", "describe" ],
   "license": "MIT",
-  "src": [ "describe.h" ],
+  "src": [ "describe.h", "describe.c" ],
   "dependencies": {
     "stephenmathieson/assertion-macros.h": "0.3.0",
     "Constellation/console-colors.c": "1.0.1"
