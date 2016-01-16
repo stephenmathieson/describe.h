@@ -1,7 +1,7 @@
 
 CC ?= gcc
 CFLAGS = -std=c99 -Wall -Wextra -Ideps
-DEPS := $(wildcard deps/*/*.c)
+DEPS := $(wildcard describe.c deps/*/*.c)
 OBJS := $(DEPS:.c=.o)
 
 default: example

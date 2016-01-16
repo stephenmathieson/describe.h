@@ -7,42 +7,28 @@
 // MIT licensed
 //
 
-
 #ifndef DESCRIBE_H
 #define DESCRIBE_H 1
 
-#include "console-colors/console-colors.h"
+#include <stdio.h>
 #include "assertion-macros/assertion-macros.h"
 
-#define DESCRIBE_OK      "✓"
-#define DESCRIBE_FAIL    "✖"
+/**
+ * Before specification.
+ */
 
-void __describe_after_spec(const char *specification, int before) {
-  if (assert_failures() == before) {
-    cc_fprintf(
-        CC_FG_DARK_GREEN
-      , stdout
-      , "    %s"
-      , DESCRIBE_OK
-    );
-  } else {
-    cc_fprintf(
-        CC_FG_DARK_RED
-      , stdout
-      , "    %s"
-      , DESCRIBE_FAIL
-    );
-  }
-  cc_fprintf(
-      CC_FG_GRAY
-    , stdout
-    , " %s\n"
-    , specification
-  );
-}
+int
+__before_specification(void);
 
-/*
- * Describe `suite` with `title`
+/**
+ * After specification.
+ */
+
+void
+__after_specification(const int before, const char *specification);
+
+/**
+ * Describe the following `suite` with the given `title`.
  */
 
 #define describe(title) for (                     \
@@ -51,14 +37,15 @@ void __describe_after_spec(const char *specification, int before) {
   printf("\n")                                    \
 )
 
-/*
- * Describe `fn` with `specification`
+/**
+ * Describe the following `fn` with given `specification`.
  */
 
-#define it(specification) for (                   \
-  int __before = assert_failures(), __run = 0;    \
-  __run++ == 0;                                   \
-  __describe_after_spec(specification, __before)  \
+#define it(specification) for (                        \
+  int __run = 0, __before = __before_specification();  \
+  __run++ == 0;                                        \
+  __after_specification(__before, specification)       \
 )
+
 
 #endif
