@@ -1,4 +1,10 @@
 
+2.1.0 / 2016-01-17
+==================
+
+  * package: add "describe.c"
+  * describe: move `__after_specification` into a .c (#9)
+
 2.0.2 / 2016-01-13
 ==================
 
