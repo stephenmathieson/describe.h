@@ -18,14 +18,14 @@
  */
 
 int
-__before_specification(void);
+__before_specification(int current);
 
 /**
  * After specification.
  */
 
 void
-__after_specification(const int before, const char *specification);
+__after_specification(int before, int current, const char *specification);
 
 /**
  * Describe the following `suite` with the given `title`.
@@ -41,10 +41,10 @@ __after_specification(const int before, const char *specification);
  * Describe the following `fn` with given `specification`.
  */
 
-#define it(specification) for (                        \
-  int __run = 0, __before = __before_specification();  \
-  __run++ == 0;                                        \
-  __after_specification(__before, specification)       \
+#define it(specification) for (                                         \
+  int __run = 0, __before = __before_specification(assert_failures());  \
+  __run++ == 0;                                                         \
+  __after_specification(__before, assert_failures(), specification)     \
 )
 
 
