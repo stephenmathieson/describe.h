@@ -10,13 +10,13 @@
 #include "console-colors/console-colors.h"
 
 int
-__before_specification(void) {
-  return assert_failures();
+__before_specification(int current) {
+  return current;
 }
 
 void
-__after_specification(const int before, const char *specification) {
-  int failed = before == assert_failures();
+__after_specification(int before, int current, const char *specification) {
+  int failed = before == current;
   cc_fprintf(
       failed ? CC_FG_DARK_GREEN : CC_FG_DARK_RED
     , stdout
