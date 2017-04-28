@@ -7,7 +7,7 @@
   "license": "MIT",
   "src": [ "describe.h", "describe.c" ],
   "dependencies": {
-    "stephenmathieson/assertion-macros.h": "0.3.0",
+    "stephenmathieson/assertion-macros.h": "0.3.1",
     "Constellation/console-colors.c": "1.0.1"
   }
 }
